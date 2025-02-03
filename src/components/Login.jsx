@@ -6,8 +6,9 @@ import { useNavigate } from 'react-router-dom';
 import { BASE_URL } from '../utils/constants';
 
 const Login = () => {
-    const [emailId, setEmailId] = useState("taiki@inomata.com");
-    const [password, setPassword] = useState("TaikiInomata@123");
+    const [emailId, setEmailId] = useState("");
+    const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -18,7 +19,7 @@ const Login = () => {
             dispatch(addUser(res.data))
             return navigate("/")
         } catch (err) {
-            console.log(err);
+            setError(err?.response?.data)
         }
     };
 
@@ -40,6 +41,7 @@ const Login = () => {
                         </svg>
                         <input type="password" className="grow" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
                     </label>
+                    <p className='text-red-500'>{error}</p>
                     <div className="card-actions justify-end w-full">
                         <button className="btn btn-primary w-full" onClick={handleLogin}>Login</button>
                     </div>
