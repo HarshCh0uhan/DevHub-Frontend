@@ -2,11 +2,11 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="bg-neutral text-neutral-content p-4 flex flex-col md:flex-row items-center justify-between w-full fixed bottom-0">
+    <footer className="bg-neutral text-neutral-content p-3 flex flex-col md:flex-row items-center justify-between w-full fixed bottom-0 ">
       <aside className="flex items-center space-x-2">
         <svg
-          width="36"
-          height="36"
+          width="30"
+          height="30"
           viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"
           fillRule="evenodd"
@@ -21,8 +21,8 @@ const Footer = () => {
         <a href="#" aria-label="Twitter">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
+            width="20"
+            height="20"
             viewBox="0 0 24 24"
             className="fill-current"
           >
@@ -32,8 +32,8 @@ const Footer = () => {
         <a href="#" aria-label="YouTube">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
+            width="20"
+            height="20"
             viewBox="0 0 24 24"
             className="fill-current"
           >
@@ -43,8 +43,8 @@ const Footer = () => {
         <a href="#" aria-label="Facebook">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
+            width="20"
+            height="20"
             viewBox="0 0 24 24"
             className="fill-current"
           >
