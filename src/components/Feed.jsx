@@ -26,10 +26,10 @@ const Feed = () => {
 
   return (
    feed && ( <div>
-      {feed.map((card) => {
+      {/* {feed.map((card) => {
         <UserCard key={card._id} user={card} />
-      })}
-      {/* <UserCard user={feed[5]}/> */}
+      })} */}
+      <UserCard user={feed[1]}/>
     </div>)
   )
 }

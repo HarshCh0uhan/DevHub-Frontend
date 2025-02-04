@@ -1,7 +1,7 @@
 import React from 'react';
 
 const UserCard = ({ user }) => {
-  const { firstName, lastName, age, gender, skills, about, photoUrl } = user;
+  const { firstName, lastName, age, gender, about, photoUrl } = user;
 
   return (
     <div className="flex justify-center my-10 px-4 hover:scale-100">
@@ -23,7 +23,7 @@ const UserCard = ({ user }) => {
             <button className="btn btn-primary w-full md:w-auto">
               Connect
             </button>
-            <button className="btn btn-neutral w-full md:w-auto">
+            <button className="btn btn-outline w-full md:w-auto">
               Ignore
             </button>
           </div>
