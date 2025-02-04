@@ -29,7 +29,7 @@ const Connections = () => {
         fetchConnections();
     }, [])
 
-    if(!connections || connections.length == 0) return <h1 className='font-bold text-2xl'>No Connections Found</h1>
+    if(!connections || connections.length == 0) return <h1 className='font-bold text-2xl flex justify-center mt-10'>No Connections Found</h1>
 
   return (
     <div className='text-center items-start mt-5'>
@@ -48,7 +48,6 @@ const Connections = () => {
                     <div className="card-body p-4 text-start">
                         <h2 className="card-title text-base md:text-lg">{firstName + " " + lastName}</h2>
                         <p className="text-sm md:text-base">{about}</p>
-                        {/* <p className="text-sm md:text-base text-start">{gender.charAt(0).toUpperCase() + gender.slice(1)}</p> */}
                         <div className="card-actions justify-end">
                         <button className="btn btn-primary btn-sm md:btn-md">Drop</button>
                         </div>
