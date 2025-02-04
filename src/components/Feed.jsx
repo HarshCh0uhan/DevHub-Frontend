@@ -29,7 +29,7 @@ const Feed = () => {
       {/* {feed.map((card) => {
         <UserCard key={card._id} user={card} />
       })} */}
-      <UserCard user={feed[1]}/>
+      <UserCard user={feed[0]}/>
     </div>)
   )
 }

@@ -42,44 +42,85 @@ const EditProfile = ({user}) => {
     
     
     return (
-        <div className="flex items-center justify-center px-4 md:px-0 my-10">
-            <UserCard user={user}/>
-            <div className="card bg-neutral text-neutral-content w-full max-w-md p-6 shadow-xl">
-                <div className="card-body items-center text-center gap-6">
-                    <h2 className="card-title text-lg md:text-2xl">Update Profile</h2>
-                    <label className="input input-bordered flex items-center gap-2 w-full">
-                        <input type="text" className="grow" placeholder="First Name" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
-                    </label>
-                    <label className="input input-bordered flex items-center gap-2 w-full">
-                        <input type="text" className="grow" placeholder="Last Name" value={lastName} onChange={(e) => setLastName(e.target.value)} />
-                    </label>
-                    <label className="input input-bordered flex items-center gap-2 w-full">
-                        <input type="text" className="grow" placeholder="Photo URL" value={photoUrl} onChange={(e) => setPhotoUrl(e.target.value)} />
-                    </label>
-                    <label className="input input-bordered flex items-center gap-2 w-full">
-                        <input type="text" className="grow" placeholder="Age" value={age} onChange={(e) => setAge(e.target.value)} />
-                    </label>
-                    <div className="dropdown flex items-center w-full">
-                    <button type="button" className="btn m-1 w-full" onClick={() => setDropdownOpen(!dropdownOpen)}>{gender || "Select Gender"}</button>
-                       {dropdownOpen && (<ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
-                            <li><a onClick={() => handleGenderSelect("Male")}>Male</a></li>
-                            <li><a onClick={() => handleGenderSelect("Female")}>Female</a></li>
-                            <li><a onClick={() => handleGenderSelect("Other")}>Other</a></li>
-                        </ul>)}
-                    </div>
-                    <label className="input input-bordered flex items-center gap-2 w-full">
-                        <input type="text" className="grow" placeholder="About" value={about} onChange={(e) => setAbout(e.target.value)} />
-                    </label>
-                    {update && <div className="toast toast-top toast-center">
-                        <div className="alert alert-success">
-                            <span>Updated Successfully.</span>
-                        </div>
-                    </div>}
-                    {error && <p className='text-error'>{error}</p>}
-                        <button className="btn btn-primary w-full" onClick={saveProfile} >Update</button>
-                </div>
+        <div className="flex flex-col md:flex-row items-center justify-center px-2 md:px-0 my-6 gap-4">
+      <UserCard user={user} />
+      <div className="card bg-neutral text-neutral-content w-full max-w-sm p-4 shadow-xl">
+        <div className="card-body text-center gap-4 items-center">
+          <h2 className="card-title text-lg md:text-xl">Update Profile</h2>
+
+          <input
+            type="text"
+            className="input input-bordered w-full"
+            placeholder="First Name"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+          />
+
+          <input
+            type="text"
+            className="input input-bordered w-full"
+            placeholder="Last Name"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+          />
+
+          <input
+            type="text"
+            className="input input-bordered w-full"
+            placeholder="Photo URL"
+            value={photoUrl}
+            onChange={(e) => setPhotoUrl(e.target.value)}
+          />
+
+          <input
+            type="text"
+            className="input input-bordered w-full"
+            placeholder="Age"
+            value={age}
+            onChange={(e) => setAge(e.target.value)}
+          />
+
+          <div className="relative w-full">
+            <button
+              type="button"
+              className="btn w-full"
+              onClick={() => setDropdownOpen(!dropdownOpen)}
+            >
+              {gender || "Select Gender"}
+            </button>
+            {dropdownOpen && (
+              <ul className="absolute z-10 bg-base-100 rounded-box w-full p-2 shadow-md mt-2">
+                <li><a onClick={() => handleGenderSelect("Male")}>Male</a></li>
+                <li><a onClick={() => handleGenderSelect("Female")}>Female</a></li>
+                <li><a onClick={() => handleGenderSelect("Other")}>Other</a></li>
+              </ul>
+            )}
+          </div>
+
+          <input
+            type="text"
+            className="input input-bordered w-full"
+            placeholder="About"
+            value={about}
+            onChange={(e) => setAbout(e.target.value)}
+          />
+
+          {update && (
+            <div className="toast toast-top toast-center">
+              <div className="alert alert-success">
+                <span>Updated Successfully.</span>
+              </div>
             </div>
+          )}
+
+          {error && <p className='text-error'>{error}</p>}
+
+          <button className="btn btn-primary w-full" onClick={saveProfile}>
+            Update
+          </button>
         </div>
+      </div>
+    </div>
     );
 }
 
