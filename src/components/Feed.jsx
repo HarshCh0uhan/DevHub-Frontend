@@ -3,7 +3,7 @@ import { BASE_URL } from '../utils/constants';
 import { addFeed } from '../utils/feedSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
-import UserCard from './Usercard';
+import UserCard from './UserCard';
 
 const Feed = () => {
   const dispatch = useDispatch();
@@ -31,7 +31,6 @@ const Feed = () => {
    feed && ( <div>
       {feed.map((card) => <UserCard key={card._id} user={card} />
       )}
-      {/* <UserCard user={feed[0]}/> */}
     </div>)
   )
 }

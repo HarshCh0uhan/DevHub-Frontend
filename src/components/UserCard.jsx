@@ -7,6 +7,8 @@ import { removeUserFeed } from '../utils/feedSlice';
 const UserCard = ({ user }) => {
   const { firstName, lastName, age, gender, about, photoUrl, _id } = user;
   const dispatch = useDispatch();
+  const [error, setError] = React.useState(null);
+
 
 const fetchSendConnection = async (status, _id) => {
   try {
