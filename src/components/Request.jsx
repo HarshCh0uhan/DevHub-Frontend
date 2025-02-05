@@ -3,7 +3,6 @@ import React, { useEffect } from 'react'
 import { BASE_URL } from '../utils/constants'
 import { addRequest, removeRequest } from '../utils/requestSlice';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeConnection } from '../utils/connectionSlice';
 
 const Request = () => {
     const  dispatch = useDispatch();

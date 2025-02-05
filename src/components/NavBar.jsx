@@ -8,6 +8,8 @@ import { BASE_URL } from '../utils/constants';
 const NavBar = () => {
 
   const user = useSelector(store => store.user)
+  const requests = useSelector((store) => store.request)
+  const connections = useSelector((store) => store.connection)
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -47,8 +49,8 @@ const NavBar = () => {
                   <span className="badge">New</span>
                 </Link>
               </li>
-              <li><Link to="/connections">Connections</Link></li>
-              <li><Link to="/request">Request</Link></li>
+              <li><Link to="/connections">Connections ({connections ? connections.length : "0"})</Link></li>
+              <li><Link to="/request">Request ({requests ? requests.length : "0"})</Link></li>
               <li><a onClick={handleLogout}>Logout</a></li>
             </ul>
           </div>
