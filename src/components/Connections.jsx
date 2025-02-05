@@ -35,7 +35,7 @@ const Connections = () => {
     <div className='text-center items-start mt-5'>
         <h1 className='font-bold text-2xl'>Connections</h1>
         {connections.map((connection) => {
-            const { firstName, lastName, age, gender, about, photoUrl, _id } = connection;
+            const { firstName, lastName, about, photoUrl, _id } = connection;
             return (
                 <div key={_id} className="card bg-base-100 shadow-xl max-w-md mx-auto mt-10 flex flex-col md:flex-row transition-transform transform hover:scale-105">
                     <figure className="h-48 w-full md:w-48">

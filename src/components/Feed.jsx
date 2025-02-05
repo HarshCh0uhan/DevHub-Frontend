@@ -24,12 +24,14 @@ const Feed = () => {
     getFeed();
   }, [])
 
+  
+  if(!feed || feed.length <= 0) return <h1 className='font-bold text-2xl flex justify-center mt-10'>No User Found</h1>
+
   return (
    feed && ( <div>
-      {/* {feed.map((card) => {
-        <UserCard key={card._id} user={card} />
-      })} */}
-      <UserCard user={feed[0]}/>
+      {feed.map((card) => <UserCard key={card._id} user={card} />
+      )}
+      {/* <UserCard user={feed[0]}/> */}
     </div>)
   )
 }
