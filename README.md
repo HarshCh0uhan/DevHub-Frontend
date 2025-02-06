@@ -19,3 +19,6 @@ Body
     Route=/login => Login
     Route=/connetions => Connections
     Router=/profite => Profile
+
+- Access_key : REMOVED_KEY
+- Secret_access_key : REMOVED_KEY
