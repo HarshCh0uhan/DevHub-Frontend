@@ -8,13 +8,13 @@ const Request = () => {
     const  dispatch = useDispatch();
     const requests = useSelector((store) => store.request)
     
-    // console.log(requests);
+    console.log(requests);
 
     const reviewRequest = async (status, _id) => {
         try {
             const res = await axios.post(BASE_URL + "/request/review/" + status + "/" + _id, {}, {withCredentials: true})
     
-            // console.log(res?.data);
+            console.log(res?.data);
 
                 dispatch(removeRequest(_id))
         } catch (err) {

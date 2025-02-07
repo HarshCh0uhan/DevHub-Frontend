@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { BASE_URL } from '../utils/constants'
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
-import { addConnection } from '../utils/connectionSlice';
+import { addConnection, removeConnection } from '../utils/connectionSlice';
 
 const Connections = () => {
     const [error, setError] = useState("");
@@ -10,6 +10,18 @@ const Connections = () => {
     const connections = useSelector((store) => store.connection)
 
     console.log(connections);
+
+    const dropUser = async (status, _id) => {
+        try {
+
+            const res = await axios.post(BASE_URL + "/request/review/" + status + "/" + _id, {}, {withCredentials:true})
+            console.log(res?.data);
+            dispatch(removeConnection(_id))
+            
+        } catch (err) {
+            setError(err?.response?.data)
+        }
+    }
     
 
     const fetchConnections = async () => {
@@ -64,7 +76,7 @@ const Connections = () => {
                 </div>
                 
                 <div className="card-actions justify-end mt-4">
-                  <button className="btn btn-primary">
+                  <button className="btn btn-primary" onClick={() => dropUser("reject", _id)}>
                     Drop
                   </button>
                 </div>
