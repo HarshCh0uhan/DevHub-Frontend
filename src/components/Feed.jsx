@@ -29,8 +29,8 @@ const Feed = () => {
   if(!feed || feed.length <= 0) return <h1 className='font-bold text-2xl flex justify-center mt-10'>No User Found</h1>
 
   return (
-    <div className='flex justify-center items-center px-14 mt-8'>
-      {feed && ( <div className='stack w-full max-w-md sm:max-w-lg'>
+    <div className='stack w-full max-w-md sm:max-w-lg md:max-w-2xl lg:max-w-4xl'>
+      {feed && ( <div className='flex justify-center items-center px-14 mt-8'>
           {feed.map((card) => <UserCard key={card._id} user={card} />
           )}
         </div>)}
