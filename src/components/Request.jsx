@@ -41,35 +41,54 @@ const Request = () => {
     if(!requests || requests.length == 0) return <h1 className='font-bold text-2xl flex justify-center mt-10'>No Request Found</h1>
 
   return (
-    <div className='text-center items-start mt-5'>
+    <div className='container mx-auto px-4 pb-20'>
+      <div className='text-center mt-8 mb-6'>
         <h1 className='font-bold text-2xl'>Request</h1>
+      </div>
+      
+      <div className="flex flex-col items-center gap-8">
         {requests.map((request) => {
-            const { firstName, lastName, age, gender, about, photoUrl, _id } = request.fromUserId;
-            return (
-                <div key={_id} className="card bg-base-100 shadow-xl max-w-md mx-auto mt-10 flex flex-col md:flex-row transition-transform transform hover:scale-105">
-                    <figure className="h-48 w-full md:w-48">
-                        <img
-                        src={photoUrl}
-                        alt="Image"
-                        className="h-full w-full object-cover rounded-t-lg md:rounded-t-none md:rounded-l-lg"
-                        />
-                    </figure>
-                    <div className="card-body p-4">
-                        <h2 className="card-title text-base md:text-lg">{firstName + " " + lastName}</h2>
-                        <p className="text-sm md:text-base text-start">{about}</p>
-                        <div className="card-actions flex flex-col md:flex-row justify-center md:justify-end mt-4 gap-2">
-                            <button className="btn btn-primary w-full md:w-auto" onClick={() => reviewRequest("accept", request._id)}>
-                            Accept
-                            </button>
-                            <button className="btn btn-outline w-full md:w-auto" onClick={() => reviewRequest("reject", request._id)}>
-                            Refuse
-                            </button>
-                        </div>
-                    </div>
-                    
+          const { firstName, lastName, age, gender, photoUrl, _id } = request.fromUserId;
+          return (
+            <div 
+              key={_id} 
+              className="flex flex-col items-center max-w-xs w-full"
+            >
+              <div className="w-64 h-80 mb-4"> 
+                <img
+                  src={photoUrl}
+                  alt={`${firstName}'s profile`}
+                  className="w-full h-full object-cover rounded-lg shadow-lg"
+                />
+              </div>
+              
+              <div className="text-center w-full">
+                <h2 className="text-xl font-semibold mb-1">
+                  {firstName + " " + lastName}
+                </h2>
+                <p className="text-base text-gray-400 mb-4">
+                  {age + " " + gender.charAt(0).toUpperCase() + gender.slice(1)}
+                </p>
+                
+                <div className="flex justify-center gap-3">
+                  <button 
+                    className="btn btn-primary"
+                    onClick={() => reviewRequest("accept", request._id)}
+                  >
+                    Accept
+                  </button>
+                  <button 
+                    className="btn btn-outline"
+                    onClick={() => reviewRequest("reject", request._id)}
+                  >
+                    Refuse
+                  </button>
                 </div>
-            )
+              </div>
+            </div>
+          );
         })}
+      </div>
     </div>
   )
 }

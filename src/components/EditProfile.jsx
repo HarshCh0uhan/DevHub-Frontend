@@ -107,8 +107,8 @@ const EditProfile = ({user}) => {
 
           {update && (
             <div className="toast toast-top toast-center">
-              <div className="alert alert-success">
-                <span>Updated Successfully.</span>
+              <div className="alert alert-success bg-primary">
+                <span>Updated Successfully !!!</span>
               </div>
             </div>
           )}
