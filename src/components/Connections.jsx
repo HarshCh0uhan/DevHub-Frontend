@@ -3,19 +3,20 @@ import { BASE_URL } from '../utils/constants'
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { addConnection, removeConnection } from '../utils/connectionSlice';
+import { Link } from 'react-router-dom';
 
 const Connections = () => {
     const [error, setError] = useState("");
     const dispatch = useDispatch();
     const connections = useSelector((store) => store.connection)
 
-    console.log(connections);
+    // console.log(connections);
 
     const dropUser = async (status, _id) => {
         try {
 
             const res = await axios.post(BASE_URL + "/request/review/" + status + "/" + _id, {}, {withCredentials:true})
-            console.log(res?.data);
+            // console.log(res?.data);
             dispatch(removeConnection(_id))
             
         } catch (err) {
@@ -28,7 +29,7 @@ const Connections = () => {
         try {
             const res = await axios.get(BASE_URL + "/user/connections", {withCredentials: true})
 
-            console.log(res?.data);
+            // console.log(res?.data);
 
             dispatch(addConnection(res?.data));
             
@@ -79,6 +80,11 @@ const Connections = () => {
                   <button className="btn btn-primary" onClick={() => dropUser("reject", _id)}>
                     Drop
                   </button>
+                  <Link to={"/chat/" + _id}>
+                    <button className="btn btn-primary">
+                        Chat
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>

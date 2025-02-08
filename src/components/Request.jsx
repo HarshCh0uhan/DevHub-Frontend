@@ -8,13 +8,13 @@ const Request = () => {
     const  dispatch = useDispatch();
     const requests = useSelector((store) => store.request)
     
-    console.log(requests);
+    // console.log(requests);
 
     const reviewRequest = async (status, _id) => {
         try {
             const res = await axios.post(BASE_URL + "/request/review/" + status + "/" + _id, {}, {withCredentials: true})
     
-            console.log(res?.data);
+            // console.log(res?.data);
 
                 dispatch(removeRequest(_id))
         } catch (err) {
@@ -26,7 +26,7 @@ const Request = () => {
         try {
             const res = await axios.get(BASE_URL + "/user/request/received", {withCredentials: true})
     
-            console.log(res?.data);
+            // console.log(res?.data);
     
             dispatch(addRequest(res?.data))
         } catch (err) {
@@ -48,7 +48,7 @@ const Request = () => {
       
       <div className="flex flex-col items-center gap-8">
         {requests.map((request) => {
-          const { firstName, lastName, age, gender, photoUrl, _id } = request.fromUserId;
+          const { firstName, lastName, age, gender, photoUrl, _id } = request?.fromUserId;
           return (
             <div 
               key={_id} 
@@ -73,13 +73,13 @@ const Request = () => {
                 <div className="flex justify-center gap-3">
                   <button 
                     className="btn btn-primary"
-                    onClick={() => reviewRequest("accept", request._id)}
+                    onClick={() => reviewRequest("accept", _id)}
                   >
                     Accept
                   </button>
                   <button 
                     className="btn btn-outline"
-                    onClick={() => reviewRequest("reject", request._id)}
+                    onClick={() => reviewRequest("reject", _id)}
                   >
                     Refuse
                   </button>

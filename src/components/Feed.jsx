@@ -31,7 +31,7 @@ const Feed = () => {
   return (
     <div className='flex justify-center items-center px-14 mt-8'>
       {feed && ( <div className='stack w-full max-w-md sm:max-w-lg'>
-          {feed.map((card) => <UserCard key={card._id} user={card} />
+          {feed.map((card) => <UserCard key={card?._id} user={card} />
           )}
         </div>)}
     </div>

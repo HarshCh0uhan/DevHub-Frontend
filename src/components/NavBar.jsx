@@ -20,7 +20,7 @@ const NavBar = () => {
       dispatch(removerUser())
       return navigate("/login")
     } catch (err) {
-      console.log(err)
+      setError(err?.response?.data)
     }
   }
 
@@ -30,13 +30,13 @@ const NavBar = () => {
         <Link to="/" className="btn btn-ghost text-xl md:text-2xl">DevHub</Link>
       </div>
       {user && <div className="flex-none gap-2">
-        <div className='form-control font-semibold' >Welcome, {user.firstName}</div>
+        <div className='form-control font-semibold' >Welcome, {user?.firstName}</div>
           <div className="dropdown dropdown-end">
             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
               <div className="w-10 md:w-12 rounded-full">
                 <img
                   alt="User Avatar"
-                  src={user.photoUrl}
+                  src={user?.photoUrl}
                 />
               </div>
             </div>
